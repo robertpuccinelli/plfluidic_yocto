@@ -1,0 +1,19 @@
+[Unit]
+Description=Start Cog Browser Kiosk
+After=weston.service plfluidic.service
+Requires=weston.service
+
+[Service]
+Type=simple
+Environment=XDG_RUNTIME_DIR=/run
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=COG_MODULES_DIR=/usr/lib/cog/modules
+Environment=GIO_USE_VFS=local
+Environment=GIO_USE_PORTALS=0
+Environment=DBUS_SESSION_BUS_ADDRESS=/dev/null
+ExecStart=/usr/bin/cog -P wl http://localhost:5454
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
