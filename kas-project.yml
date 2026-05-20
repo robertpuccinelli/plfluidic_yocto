@@ -57,6 +57,9 @@ local_conf_header:
     WIFI_SSID = "abc"
     WIFI_PASS = "abc"
 
+    # Optional system timezone
+    SYSTEM_DEFAULT_TZ = "PST8PDT,M3.2.0,M11.1.0"
+
     # Image configuration
     IMAGE_FSTYPES:append = " wic.gz"
     IMAGE_BOOT_FILES:append = " ${KERNEL_IMAGETYPE}"

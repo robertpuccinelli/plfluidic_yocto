@@ -3,6 +3,10 @@ Description= plfluidic server
 After=network.target
 
 [Service]
+CPUSchedulingPolicy=fifo
+CPUSchedulingPriority=90
+CPUAffinity=2,3
+Nice=-20
 User=root
 ExecStart=/usr/bin/plfluidic.sh
 Restart=always

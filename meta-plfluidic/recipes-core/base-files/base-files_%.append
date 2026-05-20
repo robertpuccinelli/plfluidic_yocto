@@ -1,0 +1,10 @@
+SYSTEM_DEFAULT_TZ ?+ ""
+
+do_install:append() {
+    if [ -n "${SYSTEM_DEFAULT_TZ}" ]; then
+        bbnote "Setting system-wide default timezone to ${SYSTEM_DEFAULT_TZ}"
+        echo "" >> ${D}/${sysconfdir}/profile
+        echo "# Default timezone" >> ${D}/${sysconfdir}/profile
+        echo "export TZ=\"${SYSTEM_DEFAULT_TZ}\"" >> ${D}/${sysconfdir}/profile
+    fi
+}
